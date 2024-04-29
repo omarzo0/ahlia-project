@@ -3,7 +3,7 @@ VALUES
 	('King Salman International University', 'Ras Sider, South Sinai', 'https://ksiu.edu.eg/', 'King Salman International University is envisioned as a prestigious institution of higher learning, dedicated to fostering academic excellence, research, and innovation on an international scale. Situated in a strategic location, the university aims to attract students and faculty from diverse backgrounds and nationalities, creating a vibrant and multicultural learning environment.
        At King Salman International University, students have access to a wide range of undergraduate, graduate, and professional programs designed to meet the evolving needs of the global workforce. The curriculum is crafted to provide students with a well-rounded education, combining theoretical knowledge with practical skills and real-world experiences.', 1),
     ('Al Alamein University', 'Al Alameen City, Marsa Matrouh', 'https://aiu.edu.eg/', 'Al Alamein University is a leading institution of higher education located in the coastal city of Al Alamein, Egypt. Nestled along the pristine shores of the Mediterranean Sea, the university offers a unique and picturesque setting for academic pursuits. Committed to excellence in education, research, and innovation, Al Alamein University provides a diverse range of undergraduate and graduate programs across various disciplines. Whether in the fields of arts and humanities, sciences, engineering, business, or health sciences, students at Al Alamein University benefit from a rigorous curriculum taught by esteemed faculty members who are experts in their fields.', 2),
-	('Galala University', 'Attaka, Suiz', 'https://www.gu.edu.eg/', 'As of my last update in January 2022, Galala University is a private institution located in the city of Suez, Egypt. Established in 2019, Galala University aims to provide high-quality education across various disciplines, with a focus on innovation, research, and community engagement.
+	('Galala University', 'Attaka, Suiz', 'https://www.gu.edu.eg/', 'As of my last update in January 2022, Galala University is a National institution located in the city of Suez, Egypt. Established in 2019, Galala University aims to provide high-quality education across various disciplines, with a focus on innovation, research, and community engagement.
       Galala University offers a diverse range of undergraduate and graduate programs designed to meet the needs of students and the demands of the modern workforce. From engineering and technology to business, humanities, and social sciences, the university provides students with opportunities to pursue their academic interests and career aspirations.', 3),
     ('New Mansoura University', 'New Mansoura City, Dakahlia', 'https://www.nmu.edu.eg/ar', 'At New Mansoura University, research and innovation are central to its mission. The university encourages faculty and students to engage in cutting-edge research projects that address pressing societal challenges and contribute to the advancement of knowledge in their respective fields. Through collaborations with industry partners, government agencies, and international institutions, the university seeks to promote innovation and entrepreneurship and drive economic development in the region.', 4),
 	('The Egyptian E-Learning University', 'Dokki, Giza', 'https://www.eelu.edu.eg/en/', 'The Egyptian E-Learning University (EELU) is a pioneering institution of higher education in Egypt that specializes in providing online and distance learning programs. Established with the aim of expanding access to quality education and catering to the diverse needs of students, EELU offers a wide range of undergraduate and graduate programs across various disciplines.
@@ -224,21 +224,21 @@ VALUES
 
 INSERT INTO Fees (program_id, description, amount)
 VALUES 
-    (1, 'Tuition fees for the Faculty of Medicine at Al-Jalalah Private University.', 120000.00),
-    (2, 'Tuition fees for the Faculty of Pharmacy at Al-Jalalah Private University.', 85000.00),
-    (3, 'Tuition fees for the Faculty of Dentistry at Al-Jalalah Private University.', 107000.00),
-    (4, 'Tuition fees for the Faculty of Social and Human Sciences at Al-Jalalah Private University.', 43000.00),
-    (5, 'Tuition fees for the Faculty of Physiotherapy at Al-Jalalah Private University.', 70000.00),
-    (6, 'Tuition fees for the Faculty of Engineering at Al-Jalalah Private University.', 69000.00),
-    (7, 'Tuition fees for the Faculty of Computer Science at Al-Jalalah Private University.', 69000.00),
-    (8, 'Tuition fees for the Faculty of Basic Sciences at Al-Jalalah Private University.', 48000.00),
-    (9, 'Tuition fees for the Faculty of Computer Engineering at Al-Jalalah Private University.', 69000.00),
-    (10, 'Tuition fees for the Faculty of Food and Food Industries at Al-Jalalah Private University.', 43000.00),
-    (11, 'Tuition fees for the Faculty of Nursing Sciences at Al-Jalalah Private University.', 31000.00),
-    (12, 'Tuition fees for the Faculty of Media Production at Al-Jalalah Private University.', 50000.00),
-    (13, 'Tuition fees for the Faculty of Administrative Sciences at Al-Jalalah Private University.', 46000.00),
-    (14, 'Tuition fees for the Faculty of Applied Health Sciences at Al-Jalalah Private University.', 39000.00),
-    (15, 'Tuition fees for the Faculty of Arts and Design at Al-Jalalah Private University.', 49000.00),
+    (1, 'Tuition fees for the Faculty of Medicine at Galala National University.', 120000.00),
+    (2, 'Tuition fees for the Faculty of Pharmacy at Galala National University.', 85000.00),
+    (3, 'Tuition fees for the Faculty of Dentistry at Galala National University.', 107000.00),
+    (4, 'Tuition fees for the Faculty of Social and Human Sciences at Galala National University.', 43000.00),
+    (5, 'Tuition fees for the Faculty of Physiotherapy at Galala National University.', 70000.00),
+    (6, 'Tuition fees for the Faculty of Engineering at Galala National University.', 69000.00),
+    (7, 'Tuition fees for the Faculty of Computer Science at Galala National University.', 69000.00),
+    (8, 'Tuition fees for the Faculty of Basic Sciences at Galala National University.', 48000.00),
+    (9, 'Tuition fees for the Faculty of Computer Engineering at Galala National University.', 69000.00),
+    (10, 'Tuition fees for the Faculty of Food and Food Industries at Galala National University.', 43000.00),
+    (11, 'Tuition fees for the Faculty of Nursing Sciences at Galala National University.', 31000.00),
+    (12, 'Tuition fees for the Faculty of Media Production at Galala National University.', 50000.00),
+    (13, 'Tuition fees for the Faculty of Administrative Sciences at Galala National University.', 46000.00),
+    (14, 'Tuition fees for the Faculty of Applied Health Sciences at Galala National University.', 39000.00),
+    (15, 'Tuition fees for the Faculty of Arts and Design at Galala National University.', 49000.00),
     (16, 'Tuition fees for the Faculty of Human Medicine at Zagazig National University.', 140000.00),
     (17, 'Tuition fees for the Faculty of Dentistry at Zagazig National University.', 110000.00),
     (18, 'Tuition fees for the Faculty of Pharmacy at Zagazig National University.', 100000.00),
