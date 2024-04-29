@@ -224,8 +224,6 @@ VALUES
 
 INSERT INTO Fees (program_id, description, amount)
 VALUES 
-INSERT INTO Fees (program_id, description, amount)
-VALUES 
     (1, 'Tuition fees for the Faculty of Medicine at Al-Jalalah Private University.', 120000.00),
     (2, 'Tuition fees for the Faculty of Pharmacy at Al-Jalalah Private University.', 85000.00),
     (3, 'Tuition fees for the Faculty of Dentistry at Al-Jalalah Private University.', 107000.00),
