@@ -288,3 +288,4 @@ VALUES
     (60, 'Tuition fees for the Faculty of Computer Science and Artificial Intelligence at Benha University.', 45000.00),
     (61, 'Tuition fees for the Faculty of Economics and Business Administration at Benha University.', 45000.00),
     (62, 'Tuition fees for the Faculty of Visual Arts and Design at Benha University.', 45000.00);
+    (62, 'Tuition fees for the Faculty of Visual Arts and Design at Benha University.', 45000.00);
