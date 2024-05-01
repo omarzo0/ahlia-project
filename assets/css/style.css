@@ -276,7 +276,6 @@ body {
 /* ===================================== Body CSS ================================== */
 /* ===================================== Header CSS ================================== */
 header {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   position: absolute;
   width: 100%;
   z-index: 999;
@@ -327,7 +326,7 @@ header .header-nav .nav-item ul li {
   }
 }
 header .header-nav .nav-img img {
-  width: 200px;
+  width: 75px;
   padding: 3px;
   margin-top: 8px;
 }
