@@ -224,97 +224,99 @@ VALUES
 
 INSERT INTO Fees (program_id, description, amount)
 VALUES 
-    (1, 'Tuition fees for the Faculty of Medicine at Galala National University.', 120000.00),
-    (1, 'Tuition fees for the Faculty of Pharmacy at Galala National University.', 85000.00),
-    (1, 'Tuition fees for the Faculty of Dentistry at Galala National University.', 107000.00),
-    (1, 'Tuition fees for the Faculty of Social and Human Sciences at Galala National University.', 43000.00),
-    (1, 'Tuition fees for the Faculty of Physiotherapy at Galala National University.', 70000.00),
-    (1, 'Tuition fees for the Faculty of Engineering at Galala National University.', 69000.00),
-    (1, 'Tuition fees for the Faculty of Computer Science at Galala National University.', 69000.00),
-    (1, 'Tuition fees for the Faculty of Basic Sciences at Galala National University.', 48000.00),
-    (1, 'Tuition fees for the Faculty of Computer Engineering at Galala National University.', 69000.00),
-    (1, 'Tuition fees for the Faculty of Food and Food Industries at Galala National University.', 43000.00),
-    (1, 'Tuition fees for the Faculty of Nursing Sciences at Galala National University.', 31000.00),
-    (1, 'Tuition fees for the Faculty of Media Production at Galala National University.', 50000.00),
-    (1, 'Tuition fees for the Faculty of Administrative Sciences at Galala National University.', 46000.00),
-    (1, 'Tuition fees for the Faculty of Applied Health Sciences at Galala National University.', 39000.00),
-    (1, 'Tuition fees for the Faculty of Arts and Design at Galala National University.', 49000.00),
-    (16, 'Tuition fees for the Faculty of Human Medicine at Zagazig National University.', 140000.00),
-    (17, 'Tuition fees for the Faculty of Dentistry at Zagazig National University.', 110000.00),
-    (18, 'Tuition fees for the Faculty of Pharmacy at Zagazig National University.', 100000.00),
-    (19, 'Tuition fees for the Faculty of Physiotherapy at Zagazig National University.', 75000.00),
-    (20, 'Tuition fees for the Faculty of Applied Health Sciences at Zagazig National University.', 42000.00),
-    (21, 'Tuition fees for the Faculty of Nursing at Zagazig National University.', 30000.00),
-    (22, 'Tuition fees for the Faculty of Engineering at Zagazig National University.', 55000.00),
-    (23, 'Tuition fees for the Faculty of Computer Science at Zagazig National University.', 40000.00),
-    (24, 'Tuition fees for the Faculty of Arts and Design at Zagazig National University.', 44000.00),
-    (25, 'Tuition fees for the Faculty of Social and Human Sciences Arabic at Zagazig National University.', 33000.00),
-    (26, 'Tuition fees for the Faculty of Social and Human Sciences IMC at Zagazig National University.', 44000.00),
-    (27, 'Tuition fees for the Faculty of Social and Human Sciences English at Zagazig National University.', 50000.00),
-    (28, 'Tuition fees for the Faculty of Media Production at Zagazig National University.', 38000.00),
-    (2, 'Tuition fees for the Faculty of Human Medicine at King Salman University.', 105000.00),
-    (2, 'Tuition fees for the Faculty of Dentistry at King Salman University.', 97000.00),
-    (2, 'Tuition fees for the Faculty of Veterinary Medicine at King Salman University.', 60000.00),
-    (2, 'Tuition fees for the Faculty of Physiotherapy at King Salman University.', 63000.00),
-    (2, 'Tuition fees for the Faculty of Nursing Sciences at King Salman University.', 31000.00),
-    (2, 'Tuition fees for the Faculty of Pharmacy at King Salman University.', 85000.00),
-    (2, 'Tuition fees for the Faculty of Applied Health Sciences Technology at King Salman University.', 39000.00),
+--galala
+    (30, 'Tuition fees for the Faculty of Medicine at Galala University.', 120000.00),
+    (30, 'Tuition fees for the Faculty of Pharmacy at Galala University.', 85000.00),
+    (30, 'Tuition fees for the Faculty of Dentistry at Galala University.', 107000.00),
+    (31, 'Tuition fees for the Faculty of Social and Human Sciences at Galala University.', 43000.00),
+    (30, 'Tuition fees for the Faculty of Physiotherapy at Galala University.', 70000.00),
+    (26, 'Tuition fees for the Faculty of Engineering at Galala University.', 69000.00),
+    (27, 'Tuition fees for the Faculty of Computer Science at Galala University.', 69000.00),
+    (28, 'Tuition fees for the Faculty of Basic Sciences at Galala University.', 48000.00),
+    (26, 'Tuition fees for the Faculty of Computer Engineering at Galala University.', 69000.00),
+    (30, 'Tuition fees for the Faculty of Nursing Sciences at Galala University.', 31000.00),
+    (32, 'Tuition fees for the Faculty of Media Production at Galala University.', 50000.00),
+    (31, 'Tuition fees for the Faculty of Administrative Sciences at Galala University.', 46000.00),
+    (29, 'Tuition fees for the Faculty of Applied Health Sciences at Galala University.', 39000.00),
+    (33, 'Tuition fees for the Faculty of Arts and Design at Galala University.', 49000.00),
+
+--zagazig
+    (137, 'Tuition fees for the Faculty of Human Medicine at Zagazig National University.', 140000.00),
+    (138, 'Tuition fees for the Faculty of Dentistry at Zagazig National University.', 110000.00),
+    (139, 'Tuition fees for the Faculty of Engineering at Zagazig National University.', 55000.00),
+    (140, 'Tuition fees for the Faculty of Computer Science at Zagazig National University.', 40000.00),
+
+--king salman
+    (8, 'Tuition fees for the Faculty of Human Medicine at King Salman University.', 105000.00),
+    (9, 'Tuition fees for the Faculty of Dentistry at King Salman University.', 97000.00),
+    (7, 'Tuition fees for the Faculty of Veterinary Medicine at King Salman University.', 60000.00),
+    (11, 'Tuition fees for the Faculty of Nursing Sciences at King Salman University.', 31000.00),
+    (10, 'Tuition fees for the Faculty of Pharmacy at King Salman University.', 85000.00),
     (2, 'Tuition fees for the Faculty of Engineering and Computing at King Salman University.', 69000.00),
-    (2, 'Tuition fees for the Faculty of Architecture Engineering at King Salman University.', 69000.00),
-    (2, 'Tuition fees for the Faculty of Textile Sciences and Engineering at King Salman University.', 58000.00),
-    (2, 'Tuition fees for the Faculty of Arts at King Salman University.', 49000.00),
-    (2, 'Tuition fees for the Faculty of Desert Agriculture at King Salman University.', 43000.00),
-    (2, 'Tuition fees for the Advanced Basic Sciences Faculty at King Salman University.', 48000.00),
-    (2, 'Tuition fees for Food and Food Industries at King Salman University.', 43000.00),
-    (2, 'Tuition fees for Social and Humanities Sciences at King Salman University.', 43000.00),
-    (2, 'Tuition fees for Faculty of Legal Studies at King Salman University.', 45000.00),
-    (2, 'Tuition fees for the Faculty of Media Production at King Salman University.', 50000.00),
-    (2, 'Tuition fees for the Faculty of Tourism and Hospitality at King Salman University.', 40000.00),
-    (47, 'Tuition fees for the Faculty of Human Medicine at Ismailia National University.', 95000.00),
-    (48, 'Tuition fees for the Faculty of Dentistry at Ismailia National University.', 85000.00),
-    (49, 'Tuition fees for the Faculty of Pharmacy at Ismailia National University.', 65000.00),
-    (50, 'Tuition fees for the Faculty of Engineering at Ismailia National University.', 55000.00),
-    (51, 'Tuition fees for the Faculty of Nursing at Ismailia National University.', 25000.00),
-    (52, 'Tuition fees for the Faculty of Applied Health Sciences Technology at Ismailia National University.', 25000.00),
-    (53, 'Tuition fees for the Faculty of International Trade and Languages at Ismailia National University.', 25000.00),
-    (54, 'Tuition fees for the Faculty of Human Medicine at Al-Zagazig University.', 85000.00),
-    (55, 'Tuition fees for the Faculty of Dentistry at Al-Zagazig University.', 80000.00),
-    (56, 'Tuition fees for the Faculty of Engineering at Al-Zagazig University.', 45000.00),
-    (57, 'Tuition fees for the Faculty of Computer Science and Information Technology at Al-Zagazig University.', 40000.00),
-    (58, 'Tuition fees for the Faculty of Human Medicine at Benha University.', 90000.00),
-    (59, 'Tuition fees for the Faculty of Engineering at Benha University.', 90000.00),
-    (60, 'Tuition fees for the Faculty of Computer Science and Artificial Intelligence at Benha University.', 45000.00),
-    (61, 'Tuition fees for the Faculty of Economics and Business Administration at Benha University.', 45000.00),
-    (62, 'Tuition fees for the Faculty of Visual Arts and Design at Benha University.', 45000.00);
-    (62, 'Tuition fees for the Faculty of Visual Arts and Design at Benha University.', 45000.00);
-    (62, 'Tuition fees for the Faculty of medicine at New mansoura University.', 110000.00);
-    (62, 'Tuition fees for the Faculty of dentistry at New mansoura University.', 90000.00);
-    (62, 'Tuition fees for the Faculty of pharmacy at New mansoura University.', 75000.00);
-    (62, 'Tuition fees for the Faculty of engineering at New mansoura University.', 50000.00);
-    (62, 'Tuition fees for the Faculty of Social and Human Sciences at New mansoura University.', 30000.00);
-    (62, 'Tuition fees for the Faculty of Social and Human Sciences at asyuit University.', 35000.00);
-    (62, 'Tuition fees for the Faculty of engineersing at asyuit University.', 45000.00);
-    (62, 'Tuition fees for the Faculty of pharmacy at asyuit University.', 55000.00);
-    (62, 'Tuition fees for the Faculty of medicine at asyuit University.', 90000.00);
-    (62, 'Tuition fees for the Faculty of dentistry at asyuit University.', 75000.00);
-    (62, 'Tuition fees for the Faculty of computer science and artficial intellegance at asyuit University.', 40000.00);
-    (62, 'Tuition fees for the Faculty of medicine at beni sueif University.', 85000.00);
-    (62, 'Tuition fees for the Faculty of computer science and artficial intellegance at beni sueif University.', 40000.00);
-    (62, 'Tuition fees for the Faculty of dentistry at beni sueif University.', 70000.00);
-    (62, 'Tuition fees for the Faculty of Physiotherapy at beni sueif University.', 60000.00);
-    (62, 'Tuition fees for the Faculty of engineering at beni sueif University.', 55000.00);
-    (62, 'Tuition fees for the Faculty of  science at beni sueif University.', 30000.00);
-    (62, 'Tuition fees for the Faculty of computer science and artficial intellegance at beni sueif University.', 35000.00);
-    (62, 'Tuition fees for the Faculty of nursing at beni sueif University.', 25000.00);
-    (62, 'Tuition fees for the Faculty of bussiness admin at beni sueif University.', 30000.00);
-    (62, 'Tuition fees for the Faculty of medicine at alamein University.', 105000.00);
-    (62, 'Tuition fees for the Faculty of dentistry at alamein University.', 97000.00);
-    (62, 'Tuition fees for the Faculty of pet medicine at alamein University.', 61000.00);
-    (62, 'Tuition fees for the Faculty of pharmacy at alamein University.', 85000.00);
-    (62, 'Tuition fees for the Faculty of engineering at alamein University.', 69000.00);
-    (62, 'Tuition fees for the Faculty of computer science and enginnering at alamein University.', 69000.00);
-    (62, 'Tuition fees for the Faculty of Physiotherapy at alamein University.', 63000.00);
-    (62, 'Tuition fees for the Faculty of science at alamein University.', 69000.00);
-    (62, 'Tuition fees for the Faculty of art and design at alamein University.', 49000.00);
-    (62, 'Tuition fees for the Faculty of Legal studies at alamein University.', 45000.00);
-    (62, 'Tuition fees for the Faculty of Social and Human Sciences medicine at alamein University.', 46000.00);
+    (1, 'Tuition fees for the Faculty of Architecture Engineering at King Salman University.', 69000.00),
+    (13, 'Tuition fees for the Faculty of Textile Sciences and Engineering at King Salman University.', 58000.00),
+    (15, 'Tuition fees for the Faculty of Arts at King Salman University.', 49000.00),
+    (6, 'Tuition fees for the Faculty of Desert Agriculture at King Salman University.', 43000.00),
+    (5, 'Tuition fees for the Advanced Basic Sciences Faculty at King Salman University.', 48000.00),
+    (14, 'Tuition fees for the Faculty of Tourism and Hospitality at King Salman University.', 40000.00),
+
+--ismailia
+    (142, 'Tuition fees for the Faculty of Human Medicine at Ismailia National University.', 95000.00),
+    (143, 'Tuition fees for the Faculty of Dentistry at Ismailia National University.', 85000.00),
+    (144, 'Tuition fees for the Faculty of Pharmacy at Ismailia National University.', 65000.00),
+    (148, 'Tuition fees for the Faculty of Engineering at Ismailia National University.', 55000.00),
+    (146, 'Tuition fees for the Faculty of Nursing at Ismailia National University.', 25000.00),
+    (147, 'Tuition fees for the Faculty of Applied Health Sciences Technology at Ismailia National University.', 25000.00),
+    (149, 'Tuition fees for the Faculty of International Trade and Languages at Ismailia National University.', 25000.00),
+
+--benha
+    (73, 'Tuition fees for the Faculty of Human Medicine at Benha University.', 90000.00),
+    (76, 'Tuition fees for the Faculty of Engineering at Benha University.', 90000.00),
+    (77, 'Tuition fees for the Faculty of Computer Science and Artificial Intelligence at Benha University.', 45000.00),
+    (78, 'Tuition fees for the Faculty of Economics and Business Administration at Benha University.', 45000.00),
+
+--Al Alamein
+    (22, 'Tuition fees for the Faculty of Pharmacy at Al Alamein University.', 94000.00),
+    (21, 'Tuition fees for the Faculty of Dentistry at Al Alamein University.', 107000.00),
+	(20, 'Tuition fees for the Faculty of Public Health at Al Alamein University.', 63000.00),
+    (16, 'Tuition fees for the Faculty of Engineering at Al Alamein University.', 72000.00),
+    (18, 'Tuition fees for the Faculty of Computer Science at Al Alamein University.', 72000.00),
+    (17, 'Tuition fees for the Faculty of Computer Engineering at Al Alamein University.', 72000.00),
+    (19, 'Tuition fees for the Faculty of Advanced Basic Sciences at Al Alamein University.', 51000.00),
+    (23, 'Tuition fees for the Faculty of Administrative Sciences at Al Alamein University.', 49000.00),
+    (24, 'Tuition fees for the Faculty of Arts and Design at Al Alamein University.', 52000.00),
+
+--New Mansoura
+    (41, 'Tuition fees for the Faculty of Medicine at New Mansoura University.', 105000.00),
+    (42, 'Tuition fees for the Faculty of Dentistry at New Mansoura University.', 97000.00),
+	(46, 'Tuition fees for the Faculty of Nursing at New Mansoura University.', 31000.00),
+    (38, 'Tuition fees for the Faculty of Computer Science at New Mansoura University.', 69000.00),
+    (39, 'Tuition fees for the Faculty of Computer Engineering at New Mansoura University.', 69000.00),
+    (40, 'Tuition fees for the Faculty of Advanced Basic Sciences at New Mansoura University.', 48000.00),
+    (45, 'Tuition fees for the Faculty of Applied Health Sciences at New Mansoura University.', 39000.00),
+    (43, 'Tuition fees for the Faculty of Pharmaceutical Sciences at New Mansoura University.', 85000.00),
+
+--Mansoura
+    (67, 'Tuition fees for the Faculty of Medicine at Mansoura National University.', 110000.00),
+    (69, 'Tuition fees for the Faculty of Dentistry at Mansoura National University.', 90000.00),
+	(72, 'Tuition fees for the Faculty of Nursing at Mansoura National University.', 30000.00),
+    (68, 'Tuition fees for the Faculty of Engineering at Mansoura National University.', 56000.00),
+    (70, 'Tuition fees for the Faculty of Economics and Administrative Sciences at Mansoura National University.', 30000.00),
+    (71, 'Tuition fees for the Faculty of Pharmacy at Mansoura National University.', 75000.00),
+
+--Asyuit
+    (103, 'Tuition fees for the Faculty of Engineersing at Assiut National University.', 45000.00),
+    (102, 'Tuition fees for the Faculty of Pharmacy at Assiut National University.', 55000.00),
+    (100, 'Tuition fees for the Faculty of Medicine at Assiut National University.', 90000.00),
+    (101, 'Tuition fees for the Faculty of Dentistry at Assiut National University.', 75000.00),
+    (104, 'Tuition fees for the Faculty of Computer Science and Artficial Intellegance at Assiut National University.', 40000.00),
+
+--beni suif
+    (89, 'Tuition fees for the Faculty of Medicine at Beni Suef National University.', 85000.00),
+    (94, 'Tuition fees for the Faculty of Computer Science and Artficial Intellegance at Beni Suef National University.', 40000.00),
+    (90, 'Tuition fees for the Faculty of Dentistry at Beni Suef National University.', 70000.00),
+    (91, 'Tuition fees for the Faculty of Physiotherapy at Beni Suef National University.', 60000.00),
+    (92, 'Tuition fees for the Faculty of Engineering at Beni Suef National University.', 55000.00),
+    (96, 'Tuition fees for the Faculty of Science at Beni Suef National University.', 30000.00),
+    (98, 'Tuition fees for the Faculty of Nursing at Beni Suef National University.', 25000.00),
+    (97, 'Tuition fees for the Faculty of Bussiness admin at Beni Suef National University.', 30000.00);
