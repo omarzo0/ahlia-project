@@ -320,3 +320,4 @@ VALUES
     (96, 'Tuition fees for the Faculty of Science at Beni Suef National University.', 30000.00),
     (98, 'Tuition fees for the Faculty of Nursing at Beni Suef National University.', 25000.00),
     (97, 'Tuition fees for the Faculty of Bussiness admin at Beni Suef National University.', 30000.00);
+	
