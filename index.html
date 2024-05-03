@@ -8,18 +8,19 @@
     />
     <title>Ahlia universities</title>
 
-    <link rel="shortcut icon" href="assets/images/fav.jpg" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/fontawsom-all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="static/images/fav.jpg" />
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/css/fontawsom-all.min.css" />
     <link
       rel="stylesheet"
-      href="assets/plugins/slider/css/owl.carousel.min.css"
+      href="static/plugins/slider/css/owl.carousel.min.css"
     />
     <link
       rel="stylesheet"
-      href="assets/plugins/slider/css/owl.theme.default.css"
+      href="static/plugins/slider/css/owl.theme.default.css"
     />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/style.css" />
   </head>
 
   <body>
@@ -29,17 +30,17 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3 col-sm-12 nav-img">
-              <img src="assets/images/download1.jpeg" alt="" />
+              <img src="static/images/download1.jpeg" alt="" />
               <a data-toggle="collapse" data-target="#menu" href="#menu"
                 ><i class="fas d-block d-md-none small-menu fa-bars"></i
               ></a>
             </div>
             <div id="menu" class="col-md-9 d-none d-md-block nav-item">
               <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="universities.html">universities</a></li>
-                <li><a href="colleges.html">Colleges</a></li>
-                <li><a href="reqsystem.html">choose major</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/universities">Universities</a></li>
+                <li><a href="/colleges">Colleges</a></li>
+                <li><a href="/choose_major">Choose Major</a></li>
               </ul>
             </div>
           </div>
@@ -54,7 +55,7 @@
         <div class="slider-img">
           <div class="item">
             <div class="slider-img">
-              <img src="assets/images/slider/slider-1.jpg" alt="" />
+              <img src="static/images/slider/slider-1.jpg" alt="" />
             </div>
             <div class="container">
               <div class="row">
@@ -70,9 +71,9 @@
                       universities in Egypt.
                     </p>
                     <a
-                      href="universities.html"
+                      href="/universities"
                       class="btn btn-success hidden-xs"
-                      >universities</a
+                      >Universities</a
                     >
                   </div>
                 </div>
@@ -87,65 +88,28 @@
     <div class="popular-cources">
       <div class="container">
         <div class="session-title row">
-          <h2>Our famous universities</h2>
+          <h2>Our Top 3 National Universities</h2>
         </div>
         <div class="row courc-ro">
-          <div class="col-md-4">
-            <div class="courc-card">
-              <img src="assets/images/download.jpeg" alt="" />
-              <div class="cource-det">
-                <h6>Galala University</h6>
-                <ul>
-                  <li>
-                    Galala University (GU) is a new smart university, offering
-                    future-based programs that consider the current and future
-                    labour markets at the domestic, regional and international
-                    levels. The University’s unique location in Galala city
-                    inspires students’ talent and imagination and provides an
-                    enjoyable learning experience.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="courc-card">
-              <img src="assets/images/download (1).jpeg" alt="" />
-              <div class="cource-det">
-                <h6>King salman University</h6>
-                <ul>
-                  <li>
-                    King Salman International University (KSIU) is a smart
-                    university with international standards and special nature
-                    that seeks to provide the community with future leaders and
-                    innovators capable of making tangible changes to themselves
-                    and their country. The University aims at competing in the
-                    area of science and technology and culture development at an
-                    international level.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="courc-card">
-              <img src="assets/images/download (2).jpeg" alt="" />
-              <div class="cource-det">
-                <h6>Alamein University</h6>
-                <ul>
-                  <li>
-                    Alamein International University strives to prepare
-                    qualified graduates with high levels of competitiveness in
-                    the labour market regionally and globally and committed to
-                    professional values and ethics through outstanding
-                    educational programs based on theoretical knowledge and
-                    practical skills in accordance with international
-                    professional standards and quality levels.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          {% for university in universities %}
+<div class="col-md-4">
+    <div class="courc-card">
+        <!-- Use university-specific img_path from the database -->
+        <img src="data:image/jpeg;base64,{{ images[loop.index0] }}" alt="University Image" />
+        <!-- Assuming images is the list of base64 encoded images passed from Python -->
+        <div class="cource-det">
+            <h6>{{ university[0] }}</h6>
+            <ul id="descriptionList{{ loop.index }}">
+                <li>{{ university[1] }}</li>
+            </ul>
+            <p>Rank: {{ university[2] }}</p>
+            <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}</p>
+            <button id="showMoreBtn{{ loop.index }}">Show More</button>
+        </div>
+    </div>
+</div>
+{% endfor %}     
+
         </div>
       </div>
     </div>
@@ -258,9 +222,42 @@
     </div>
   </body>
 
-  <script src="assets/js/jquery-3.2.1.min.js"></script>
-  <script src="assets/js/popper.min.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
-  <script src="assets/js/script.js"></script>
+  <script src="static/js/jquery-3.2.1.min.js"></script>
+  <script src="static/js/popper.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+  <script src="static/plugins/slider/js/owl.carousel.min.js"></script>
+  <script src="static/js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function toggleDescriptionList(btnId, listId, locationId) {
+            const descriptionList = document.getElementById(listId);
+            const locationContent = document.getElementById(locationId);
+            const showMoreBtn = document.getElementById(btnId);
+            const originalHeight = descriptionList.clientHeight;
+            let isExpanded = false;
+
+            // Set max-height and overflow hidden initially
+            descriptionList.style.maxHeight = "3em"; // Adjust as needed
+            descriptionList.style.overflow = "hidden";
+
+            showMoreBtn.addEventListener("click", function () {
+                if (isExpanded) {
+                    descriptionList.style.maxHeight = "3em"; // Close the expanded content
+                    locationContent.style.display = "none"; // Hide location
+                    showMoreBtn.textContent = "Show More";
+                } else {
+                    descriptionList.style.maxHeight = originalHeight + "px"; // Open the full content
+                    locationContent.style.display = "block"; // Show location
+                    showMoreBtn.textContent = "Show Less";
+                }
+                isExpanded = !isExpanded; // Toggle the expanded state
+            });
+        }
+
+        {% for university in universities %}
+        toggleDescriptionList("showMoreBtn{{ loop.index }}", "descriptionList{{ loop.index }}", "location{{ loop.index }}");
+        {% endfor %}
+    });
+</script>
+
 </html>
