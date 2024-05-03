@@ -25,7 +25,7 @@ def get_universities(limit=None):
         conn = odbc.connect(connection_string)
 
         # Define the SQL query to select universities with rank, img_data, and location
-        sql_query = f"SELECT TOP {limit} name, description, ranking, img_data, location FROM universities ORDER BY ranking"
+        sql_query = f"SELECT TOP {limit} name, description, ranking, img_data, location, website FROM universities ORDER BY ranking"
 
         # Execute the query and fetch all results
         cursor = conn.cursor()

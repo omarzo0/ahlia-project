@@ -103,12 +103,13 @@
                 <li>{{ university[1] }}</li>
             </ul>
             <p>Rank: {{ university[2] }}</p>
-            <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}</p>
+            <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}<br>University Website: <a href="{{ university[5] }}" target="_blank">{{ university[5] }}</a></p>
             <button id="showMoreBtn{{ loop.index }}">Show More</button>
         </div>
     </div>
 </div>
-{% endfor %}     
+{% endfor %}
+    
 
         </div>
       </div>
