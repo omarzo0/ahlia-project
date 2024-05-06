@@ -36,10 +36,12 @@
             </div>
             <div id="menu" class="col-md-9 d-none d-md-block nav-item">
               <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/universities">Universities</a></li>
-                <li><a href="/colleges">Colleges</a></li>
-                <li><a href="/choose_major">Choose Major</a></li>
+                <li><a href="/" data-translate="Home">Home</a></li>
+                <li><a href="/universities" data-translate="Universities">Universities</a></li>
+                <li><a href="/colleges" data-translate="Colleges">Colleges</a></li>
+                <li><a href="/choose_major" data-translate="Choose Major">Choose Major</a></li>
+                <button id="translateBtn" onclick="translateToArabic()">Translate to Arabic</button>
+
               </ul>
             </div>
           </div>
@@ -82,18 +84,18 @@
     <!-- ################# popular Cources Starts Here#######################--->
     <div class="popular-cources">
       <div class="container">
-        <div class="container">
           <div class="row">
-              <div class="col-md-3">
-                  <label for="rankFilter">Filter by Rank:</label>
-                  <select id="rankFilter" onchange="filterByRank(this.value)">
-                      <option value="all">All Ranks</option>
-                      <option value="1-5">Rank 1-5</option>
-                      <option value="5-10">Rank 5-10</option>
-                      <option value="10-15">Rank 10-15</option>
-                      <option value="15-20">Rank 15-20</option>
-                  </select>
-              </div>
+            <div class="col-md-3">
+              <label for="rankFilter" data-translate="Filter by Rank:">Filter by Rank:</label>
+              <select id="rankFilter" onchange="filterByRank(this.value)">
+                  <option value="all" data-translate="All Ranks">All Ranks</option>
+                  <option value="1-5" data-translate="Rank 1-5">Rank 1-5</option>
+                  <option value="5-10" data-translate="Rank 5-10">Rank 5-10</option>
+                  <option value="10-15" data-translate="Rank 10-15">Rank 10-15</option>
+                  <option value="15-20" data-translate="Rank 15-20">Rank 15-20</option>
+              </select>
+          </div>
+          
           </div>
           <div class="row courc-ro" id="universitiesContainer">
               {% for university in universities %}
@@ -109,13 +111,12 @@
                           </ul>
                           <p>Rank: {{ university[2] }}</p>
                           <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}<br>University Website: <a href="{{ university[5] }}" target="_blank">{{ university[5] }}</a></p>
-                          <button id="showMoreBtn{{ loop.index }}">Show More</button>
+                          <button id="showMoreBtn{{ loop.index }}"  data-translate="Show More">Show More</button>
                       </div>
                   </div>
               </div>
               {% endfor %}
           </div>
-      </div>
       </div>
     </div>
 
@@ -150,7 +151,40 @@
                 item.style.display = 'none';
             }
         });
-    }
+    };
+     
+    function translateToArabic() {
+    // Define translations for each word
+    const translations = {
+        'Filter by Rank:': 'تصفية حسب الترتيب:',
+        'All Ranks': 'جميع الترتيبات',
+        'Rank 1-5': 'الترتيب 1-5',
+        'Rank 5-10': 'الترتيب 5-10',
+        'Rank 10-15': 'الترتيب 10-15',
+        'Rank 15-20': 'الترتيب 15-20',
+        'Location:': 'الموقع:',
+        'University Website:': 'موقع الجامعة:',
+        'Show More': 'عرض المزيد',
+        'Show Less': 'عرض أقل',
+        'Home': 'الرئيسية',
+        'Universities': 'الجامعات',
+        'Colleges': 'الكليات',
+        'Choose Major': 'اختيار التخصص'
+        // Add more translations as needed
+    };
+
+    // Translate each element with a data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations.hasOwnProperty(key)) {
+            element.textContent = translations[key];
+        }
+    });
+
+    // Update the button text after translation
+    document.getElementById('translateBtn').textContent = 'Translated';
+}
+
 </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
