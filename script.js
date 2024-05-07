@@ -104,4 +104,17 @@ function evaluateQuiz() {
     "<br>" +
     " Majors of Interest: " +
     resultMajors.join(", ");
+
+  // Check if "scientific mathematics" was selected
+  if (resultMajors.includes("stem")) {
+    // Display medicine and dentistry colleges
+    const medicineAndDentistryColleges = [
+      "Medicine College",
+      "Dentistry College",
+    ];
+    const collegesDiv = document.createElement("div");
+    collegesDiv.innerHTML =
+      "Colleges: " + medicineAndDentistryColleges.join(", ");
+    resultDiv.appendChild(collegesDiv);
+  }
 }
