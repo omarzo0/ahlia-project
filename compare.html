@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparison</title>
+</head>
+<body>
+    <h1>Comparison Results</h1>
+    <table border="1">
+        <tr>
+            <th>University Image</th>
+            <th>University Name</th>
+            <th>Description</th>
+            <th>Rank</th>
+            <th>Location</th>
+            <th>University Website</th>
+        </tr>
+        {% for university in university_data %}
+        <tr>
+            <td><img src="{{ university['image'] }}" alt="University Image" width="100"></td>
+            <td>{{ university['name'] }}</td>
+            <td>{{ university['description'] }}</td>
+            <td>{{ university['rank'] }}</td>
+            <td>{{ university['location'] }}</td>
+            <td><a href="{{ university['website'] }}" target="_blank">Visit Website</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

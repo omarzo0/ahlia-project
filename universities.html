@@ -96,12 +96,15 @@
           
           </div>
           <div class="row courc-ro" id="universitiesContainer">
+            <form action="/compare" method="post">
+              
+              <input type="submit" value="Compare" />
               {% for university in universities %}
               <div class="col-md-4 university-item" data-rank="{{ university[2] }}">
                   <div class="courc-card">
-                      <!-- Use university-specific img_path from the database -->
+                      <!-- University image -->
                       <img src="data:image/jpeg;base64,{{ images[loop.index0] }}" alt="University Image" />
-                      <!-- Assuming images is the list of base64 encoded images passed from Python -->
+                      <!-- University details -->
                       <div class="cource-det">
                           <h6>{{ university[0] }}</h6>
                           <ul id="descriptionList{{ loop.index }}">
@@ -109,11 +112,17 @@
                           </ul>
                           <p>Rank: {{ university[2] }}</p>
                           <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}<br>University Website: <a href="{{ university[5] }}" target="_blank">{{ university[5] }}</a></p>
-                          <button id="showMoreBtn{{ loop.index }}"  data-translate="Show More">Show More</button>
+                          <!-- Checkbox for university selection -->
+                          <input type="checkbox" id="checkbox{{ loop.index }}" name="selected_universities" value="{{ university[0] }}">
+                          <label for="checkbox{{ loop.index }}">Select</label>
+                          <button id="showMoreBtn{{ loop.index }}" data-translate="Show More">Show More</button>
                       </div>
                   </div>
               </div>
               {% endfor %}
+              <!-- Compare button -->
+          </form>
+          
           </div>
       </div>
     </div>
