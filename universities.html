@@ -40,8 +40,6 @@
                 <li><a href="/universities" data-translate="Universities">Universities</a></li>
                 <li><a href="/colleges" data-translate="Colleges">Colleges</a></li>
                 <li><a href="/choose_major" data-translate="Choose Major">Choose Major</a></li>
-                <button id="translateBtn" onclick="translateToArabic()">Translate to Arabic</button>
-
               </ul>
             </div>
           </div>
@@ -152,39 +150,6 @@
             }
         });
     };
-     
-    function translateToArabic() {
-    // Define translations for each word
-    const translations = {
-        'Filter by Rank:': 'تصفية حسب الترتيب:',
-        'All Ranks': 'جميع الترتيبات',
-        'Rank 1-5': 'الترتيب 1-5',
-        'Rank 5-10': 'الترتيب 5-10',
-        'Rank 10-15': 'الترتيب 10-15',
-        'Rank 15-20': 'الترتيب 15-20',
-        'Location:': 'الموقع:',
-        'University Website:': 'موقع الجامعة:',
-        'Show More': 'عرض المزيد',
-        'Show Less': 'عرض أقل',
-        'Home': 'الرئيسية',
-        'Universities': 'الجامعات',
-        'Colleges': 'الكليات',
-        'Choose Major': 'اختيار التخصص'
-        // Add more translations as needed
-    };
-
-    // Translate each element with a data-translate attribute
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations.hasOwnProperty(key)) {
-            element.textContent = translations[key];
-        }
-    });
-
-    // Update the button text after translation
-    document.getElementById('translateBtn').textContent = 'Translated';
-}
-
 </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
