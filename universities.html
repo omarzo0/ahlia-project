@@ -29,7 +29,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-3 col-sm-12 nav-img">
-              <img src="" alt="" />
+              <img src="static/images/download1.jpeg" alt="" />
               <a data-toggle="collapse" data-target="#menu" href="#menu"
                 ><i class="fas d-block d-md-none small-menu fa-bars"></i
               ></a>
@@ -98,7 +98,7 @@
           <div class="row courc-ro" id="universitiesContainer">
             <form action="/compare" method="post">
               
-              <input type="submit" value="Compare" />
+              <a href="{{ ('/compare') }}"><button type = "submit">Compare</button></a>
               {% for university in universities %}
               <div class="col-md-4 university-item" data-rank="{{ university[2] }}">
                   <div class="courc-card">

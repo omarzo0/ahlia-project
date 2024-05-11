@@ -1,6 +1,6 @@
 import os
 import base64
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pypyodbc as odbc
 
 app = Flask(__name__, static_url_path='/static')
@@ -23,7 +23,7 @@ def get_universities(limit=None):
             Trust_Connection=yes;
         """
         conn = odbc.connect(connection_string)
-
+        
         # Define the SQL query to select universities with rank, img_data, and location
         sql_query = f"SELECT TOP {limit} name, description, ranking, img_data, location, website FROM universities ORDER BY ranking"
 
@@ -67,21 +67,11 @@ def display_universities():
         return render_template('universities.html', universities=universities, images=images)
     else:
         return 'No universities found'
+    
 
 @app.route('/compare', methods=['POST'])
 def compare_universities():
-    selected_universities = request.form.getlist('selected_universities')
-    # Perform database query to get data for selected universities
-    # Replace the placeholders with actual database query and processing logic
-    university_data = []
-    for university_name in selected_universities:
-        # Example query
-        university_data.append(get_university_data(university_name))  # Implement get_university_data function
-    return render_template('compare.html', university_data=university_data)
-
-# Dummy function to simulate fetching university data from the database
-# Dummy function to simulate fetching university data from the database
-def get_university_data(university_name):
+    selected_universities = get_university_data()
     try:
         # Establish a connection
         connection_string = f""" 
@@ -95,35 +85,48 @@ def get_university_data(university_name):
         # Define the SQL query to fetch university data
         sql_query = f"SELECT * FROM universities WHERE name = ?"
 
-        # Execute the query with the university_name parameter
-        cursor = conn.cursor()
-        cursor.execute(sql_query, (university_name,))
-        row = cursor.fetchone()
+        university_data_list = []
+        for university_name in selected_universities:
+            # Execute the query with the university_name parameter
+            cursor = conn.cursor()
+            cursor.execute(sql_query, (university_name,))
+            row = cursor.fetchone()
 
-        # Close the cursor and connection
-        cursor.close()
+            if row:
+                # Encode the image data to base64
+                encoded_image = base64.b64encode(row[6]).decode('utf-8')  # Assuming image data is in the 7th column
+
+                # Construct a dictionary containing university data
+                university_data = {
+                    'name': row[1],  # Assuming name is the first column
+                    'image': f"data:image/jpeg;base64,{encoded_image}",  # Include base64 encoded image data
+                    'description': row[4],  # Assuming description is the fifth column
+                    'location': row[2],  # Assuming location is the third column
+                    'website': row[3],  # Assuming website URL is the fourth column
+                    'rank': row[5]  # Assuming rank is the sixth column
+                }
+                university_data_list.append(university_data)
+            else:
+                # University not found, handle this case as needed
+                pass
+
+            # Close the cursor for this iteration
+            cursor.close()
+
+        # Close the connection after all iterations
         conn.close()
 
-        if row:
-            images = []
-            encoded_image = base64.b64encode(row[6]).decode('utf-8')  # Encode bytes to base64 string
-            images.append(encoded_image)
-            
-            # Construct a dictionary containing university data
-            university_data = {
-                'name': row[1],  # Assuming name is the first column in your database table
-                'image': row[6],  # Assuming image path or URL is the second column
-                'description': row[4],  # Assuming description is the third column
-                'location': row[2],  # Assuming location is the fourth column
-                'website': row[3],  # Assuming website URL is the fifth column
-                'rank': row[5]  # Assuming rank is the sixth column
-            }
-            return university_data
-        else:
-            return None  # University not found
+        return render_template('compare.html', universities=university_data_list)
     except Exception as e:
         print(f"Error fetching university data: {e}")
-        return None
+        # Return an error response or redirect to an error page
+        return render_template('error.html', message="Error fetching data")
+
+
+def get_university_data():
+    selected_universities = request.form.getlist('selected_universities')
+    return selected_universities
+
 
 # Define route for the colleges page
 @app.route('/colleges')
@@ -133,7 +136,7 @@ def colleges():
 # Define route for the choose major page
 @app.route('/choose_major')
 def choose_major():
-    return render_template('reqsystem.html')
+    return render_template('choose_major.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
