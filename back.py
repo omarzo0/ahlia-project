@@ -41,18 +41,52 @@ def get_universities(limit=None):
         print(f"Error fetching universities: {e}")
         return None
 
+from flask import render_template
+import base64
+
 @app.route('/')
 def fetch_universities():
     universities = get_universities(limit=3)  # Limit to the first 3 universities
     if universities:
+        # Count the total number of universities
+        total_universities = count_total_universities()
+
         images = []
         for row in universities:
             encoded_image = base64.b64encode(row[3]).decode('utf-8')  # Encode bytes to base64 string
             images.append(encoded_image)
 
-        return render_template('index.html', universities=universities, images=images)
+        return render_template('index.html', universities=universities, images=images, total_universities=total_universities)
     else:
         return 'No universities found'
+def count_total_universities():
+    try:
+        # Establish a connection
+        connection_string = f""" 
+            DRIVER={{{DRIVER_NAME}}};
+            SERVER={SERVER_NAME};
+            DATABASE={DATABASE_NAME};
+            Trust_Connection=yes;
+        """
+        conn = odbc.connect(connection_string)
+
+        # Define the SQL query to count universities
+        sql_query = "SELECT COUNT(*) FROM universities"
+
+        # Execute the query
+        cursor = conn.cursor()
+        cursor.execute(sql_query)
+        total_count = cursor.fetchone()[0]
+
+        # Close the cursor and connection
+        cursor.close()
+        conn.close()
+
+        return total_count
+    except Exception as e:
+        print(f"Error counting universities: {e}")
+        return 0  # Return 0 if an error occurs
+
 
 # Define route for the universities page
 @app.route('/universities')
@@ -121,8 +155,6 @@ def compare_universities():
         print(f"Error fetching university data: {e}")
         # Return an error response or redirect to an error page
         return render_template('error.html', message="Error fetching data")
-
-
 def get_university_data():
     selected_universities = request.form.getlist('selected_universities')
     return selected_universities
@@ -137,6 +169,10 @@ def colleges():
 @app.route('/choose_major')
 def choose_major():
     return render_template('choose_major.html')
+
+@app.route('/home')
+def home():
+    return render_template('./admin/adminpanel.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
