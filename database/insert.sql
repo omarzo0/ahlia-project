@@ -297,6 +297,82 @@ VALUES
     (98, 'Tuition fees for the Faculty of Nursing at Beni Suef National University.', 25000.00),
     (97, 'Tuition fees for the Faculty of Bussiness admin at Beni Suef National University.', 30000.00);
 
+--Helwan 
+    (98, 'Tuition fees for the Faculty of engineering at Helwan National University.', 48000.00),
+    (99, 'Tuition fees for the Faculty of Architecture and design at Helwan National University.', 48000.00),
+    (99, 'Tuition fees for the Faculty of Environmental interior design at Helwan National University.', 35000.00),
+    (99, 'Tuition fees for the Faculty of Animation and visual effects at Helwan National University.', 35000.00),
+    (99, 'Tuition fees for the Faculty of Business informatics and digital transformation at Helwan National University.', 35000.00),
+--alexandria
+    (100, 'Tuition fees for the Faculty of Medicine at Alexandria National University.', 95000.00),
+    (100, 'Tuition fees for the Faculty of Dentistry at Alexandria National University.', 85000.00),
+    (100, 'Tuition fees for the Faculty of Pharmachy at Alexandria National University.', 70000.00),
+    (100, 'Tuition fees for the Faculty of engineering at Alexandria National University.', 60000.00),
+    (100, 'Tuition fees for the Faculty of computer science at Alexandria National University.', 45000.00),
+    (100, 'Tuition fees for the Faculty of science at Alexandria National University.', 45000.00),
+--Masr 
+    (101, 'Tuition fees for the Faculty of medicine at Masr National University.', 150000.00),
+    (101, 'Tuition fees for the Faculty of physicotherapy at Masr National University.', 95000.00),
+    (101, 'Tuition fees for the Faculty of dentistry at Masr National University.', 145000.00),
+    (101, 'Tuition fees for the Faculty of pharmachy at Masr National University.', 95000.00),
+    (101, 'Tuition fees for the Faculty of Applied Health Sciences at Masr National University.', 50000.00),
+    (101, 'Tuition fees for the Faculty of Biotechnology at Masr National University.', 70000.00),
+    (101, 'Tuition fees for the Faculty of nursing at Masr National University.', 50000.00),
+    (101, 'Tuition fees for the Faculty of engineering at Masr National University.', 70000.00),
+    (101, 'Tuition fees for the Faculty of information technology at Masr National University.', 75000.00),
+    (101, 'Tuition fees for the Faculty of Antiquities and tourist guidance at Masr National University.', 40000.00),
+    (101, 'Tuition fees for the Faculty of Special Education at Masr National University.', 40000.00),
+    (101, 'Tuition fees for the Faculty of Media and Communication Technology: at Masr National University.', 55000.00),
+    (101, 'Tuition fees for the Faculty of Administration and Economics at Masr National University.', 55000.00),
+    (101, 'Tuition fees for the Faculty of Languages ​​and translation: at Masr National University.', 55000.00),
+--menofila
+    (102, 'Tuition fees for the Faculty of medicine at Menofia National University.', 110000.00),
+    (102, 'Tuition fees for the Faculty of dentistry at Menofia National University.', 95000.00),
+    (102, 'Tuition fees for the Faculty of Veterinary Medicine at Menofia National University.', 55000.00),
+    (102, 'Tuition fees for the Faculty of applied Health at Menofia National University.', 40000.00),
+    (102, 'Tuition fees for the Faculty of Physicotherapy at Menofia National University.', 90000.00),
+    (102, 'Tuition fees for the Faculty of engineering at Menofia National University.', 60000.00),
+    (102, 'Tuition fees for the Faculty of pharmachy at Menofia National University.', 90000.00),
+    (102, 'Tuition fees for the Faculty of computer science at Menofia National University.', 50000.00),
+    (102, 'Tuition fees for the Faculty of nursing at Menofia National University.', 40000.00),
+    (102, 'Tuition fees for the Faculty of social science at Menofia National University.', 30000.00),
+--Ganob elwadi
+    (103, 'Tuition fees for the Faculty of medicine at Ganob elwadi National University.', 110000.00),
+    (103, 'Tuition fees for the Faculty of physicotherapy at Ganob elwadi National University.', 65000.00),
+    (103, 'Tuition fees for the Faculty of computer science at Ganob elwadi National University.', 40000.00),
+--Qena
+    (105, 'Tuition fees for the Faculty of Medicine at Qena National University.', 110000.00),
+    (105, 'Tuition fees for the Faculty of physicotherapy at Qena National University.', 70000.00),
+    (105, 'Tuition fees for the Faculty of computer science at Qena National University.', 40000.00),
+    (105, 'Tuition fees for the Faculty of engineering at Qena National University.', 65000.00),
+    (105, 'Tuition fees for the Faculty of pharmachy at Qena National University.', 75000.00),
+    (105, 'Tuition fees for the Faculty of nursing at Qena National University.', 45000.00),
+--nile
+    (106, 'Tuition fees for the Faculty of engineering at nile National University.', 110000.00),
+    (106, 'Tuition fees for the Faculty of bussiness at nile National University.', 90000.00),
+    (106, 'Tuition fees for the Faculty of biotechnology at nile National University.', 90000.00),
+    (106, 'Tuition fees for the Faculty of computer science and information system at nile National University.', 97000.00),
+--menia
+    (107, 'Tuition fees for the Faculty of medicine at menia National University.', 120000.00),
+    (107, 'Tuition fees for the Faculty of dentistry at menia National University.', 100000.00),
+    (107, 'Tuition fees for the Faculty of pharmachy at menia National University.', 70000.00),
+    (107, 'Tuition fees for the Faculty of physicotherapy at menia National University.', 70000.00),
+    (107, 'Tuition fees for the Faculty of engineering at menia National University.', 50000.00),
+    (107, 'Tuition fees for the Faculty of computer science at menia National University.', 40000.00),
+    (107, 'Tuition fees for the Faculty of Busineess at menia National University.', 30000.00),
+--west portsaid
+    (108, 'Tuition fees for the Faculty of medicine at west portsaid National University.', 105000.00),
+    (108, 'Tuition fees for the Faculty of dentistry at west portsaid National University.', 97000.00),
+    (108, 'Tuition fees for the Faculty of pharmachy at west portsaid National University.', 85000.00),
+    (108, 'Tuition fees for the Faculty of computer science at west portsaid National University.', 69000.00),
+    (108, 'Tuition fees for the Faculty of physicotherapy at west portsaid National University.', 63000.00),
+    (108, 'Tuition fees for the Faculty of applied health at west portsaid National University.', 39000.00),
+    (108, 'Tuition fees for the Faculty of computer engineering at west portsaid National University.', 69000.00),
+    (108, 'Tuition fees for the Faculty of nursing at west portsaid National University.', 31000.00),
+    (108, 'Tuition fees for the Faculty of bussiness at west portsaid National University.', 46000.00),
+
+
+
 INSERT INTO images (name,img)
 VALUES 
 	('Engineering', (SELECT BulkColumn FROM OPENROWSET(BULK 'your_img_path', SINGLE_BLOB) AS image_data)),
