@@ -171,9 +171,13 @@ def programs():
 
                 for program_row in program_rows:
                     program_name = program_row[0]
-                    # Check if the program's image exists in the images table
+                    first_word = program_name.split()[0]
+
+                    # Define the SQL query to fetch images based on the first word of the program name
                     sql_query_image = "SELECT img FROM images WHERE name LIKE ?"
-                    cursor.execute(sql_query_image, (f'{program_name}%',))
+
+                    # Execute the query with the first word parameter
+                    cursor.execute(sql_query_image, (f'{first_word}%',))
                     image_row = cursor.fetchone()
 
                     if image_row and image_row[0]:  # Image found in the images table
