@@ -36,66 +36,65 @@
             </div>
             <div id="menu" class="col-md-9 d-none d-md-block nav-item">
               <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/universities">Universities</a></li>
-                <li><a href="/colleges">Colleges</a></li>
-                <li><a href="/choose_major">Choose Major</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="universities.html">Universities</a></li>
+                <li><a href="colleges.html">Colleges</a></li>
+                <li><a href="reqsystem.html">choose </a></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </header>
-
     <!--  ************************* Page Title Starts Here ************************** -->
     <div class="slider">
       <!-- Set up your HTML -->
-      <div class="slider-img"></div>
-      <div class="item">
+      <div class="owl-carousel">
         <div class="slider-img">
-          <img src="static/images/slider/slider-2.jpg" alt="" />
-        </div>
-        <div class="container">
-          <div class="row">
-            <div
-              class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12"
-            >
-              <div class="slider-captions">
-                <h1 class="slider-title">Education Learning system</h1>
+          <div class="item">
+            <div class="slider-img">
+              <img src="static/images/slider/slider-1.jpg" alt="" />
+            </div>
+            <div class="container">
+              <div class="row">
+                <div
+                  class="col-lg-offset-2 col-lg-8 col-md-offset-2 col-md-8 col-sm-12 col-xs-12"
+                >
+                  <div class="slider-captions">
+                    <h1 class="slider-title">
+                      All the colleges in {{ uni_name }}
+                    </h1>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="page-nav no-margin row">
+    <br><br>
+    <div class="popular-courses pc2">
       <div class="container">
-        <div class="row">
-          <h2>About our colleges</h2>
-        </div>
-        <h4>choose for the universities the colleges you want</h4>
-      </div>
-    </div>
-
-    <!--  ************************* Gallery Starts Here ************************** -->
-    <div class="gallery">
-      <div class="container">
-        <div class="row">
-          <div class="gallery-filter d-none d-sm-block">
-            <form action="/programs" method="post" id="universityForm">
-              {% for university in universities %}
-              <button class="btn btn-default filter-button" data-filter="{{ university.slug }}" value="{{ university[0] }}" name="uni_name">
-                {{ university[0] }}
-              </button>
-              {% endfor %}
-            </form>
-          </div>          
-          <br />
+        <div class="row course-ro">
+          {% for program in programs %}
+          <div class="col-md-4">
+            <div class="course-card">
+              <img src="{{ program['image_data'] }}" alt="{{ program['name'] }}" />
+              <div class="course-details">
+                <h6>{{ program['name'] }}</h6>
+                <ul>
+                  <li>
+                    <i class="fas fa-graduation-cap"></i> Fees
+                    <span>{{ program['fees'] }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
-    <!-- ######## Gallery End ####### -->
-
     <div class="copy">
       <div class="container">
         <a href="https://www.smarteyeapps.com/"

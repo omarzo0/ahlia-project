@@ -30,3 +30,11 @@ CREATE TABLE Fees (
     description NVARCHAR(MAX),
     amount DECIMAL(18, 2)
 );
+
+
+-- Create images Table
+CREATE TABLE images (
+    img_id INT PRIMARY KEY IDENTITY(1,1),
+    name VARCHAR (50),
+    img IMAGE
+);
