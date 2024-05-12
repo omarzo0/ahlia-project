@@ -211,9 +211,6 @@ def programs():
         # Return an error response or redirect to an error page
         return render_template('error.html', message="Error fetching data")
 
-
-
-
 # Define route for the choose major page
 @app.route('/choose_major')
 def choose_major():
