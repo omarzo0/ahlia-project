@@ -1,120 +1,73 @@
-function evaluateQuiz() {
-  const answers = {
-    majors: {
-      humanities: 0,
-      scienceHealth: 0,
-      stem: 0,
-      socialSciences: 0,
-      business: 0,
-    },
-    personalTraits: {
-      humanities: "Analytical",
-      scienceHealth: "Creative",
-      stem: "Inquisitive",
-      socialSciences: "Compassionate",
-      business: "Persuasive",
-    },
-    careerAspirations: {
-      humanities: "Researcher/Writer",
-      scienceHealth: "Scientist/Health Professional",
-      stem: "Engineer/Mathematician",
-      socialSciences: "Historian/Social Scientist",
-      business: "Entrepreneur/Business Leader",
-    },
-    leisurePreferences: {
-      humanities: "Creative Expression",
-      scienceHealth: "Entertainment/Gaming",
-      stem: "Entrepreneurial Activities",
-      socialSciences: "Social Engagement",
-      business: "Intellectual Pursuits",
-    },
-    learningStyles: {
-      humanities: "Reflective/Conceptual",
-      scienceHealth: "Active/Experimental",
-      stem: "Practical/Application-based",
-      socialSciences: "Social/Interpersonal",
-      business: "Logical/Strategic",
-    },
-  };
+const collegesData = {
+  "طب بشري": 82,
+  "طب الأسنان": 79,
+  "علاج طبيعي": 78,
+  "صيدلة": 78,
+  "طب بيطري": 73,
+  "هندسة": 65,
+  "علوم الحاسب": 62,
+  "كلية تكنولوجيا العلوم الصحية وكليات التكنولوجيا الحيوية": 59,
+  "فنون تطبيقية (الشعبة العلمية)": 59,
+  "كلية العلوم الأساسية": 58,
+  "الإعلام وفنون الاتصال (الشعبة الأدبية)": 55,
+  "اللغات والترجمة": 55,
+  "اقتصاد وعلوم سياسية": 55,
+  "كليات الاقتصاد والإدارة": 55,
+  "زراعة": 55,
+  "آداب": 55,
+  "آثار": 55,
+  "تربية": 55,
+  "سياحة وفنادق": 55,
+  "حقوق": 55,
+  "تمريض": 55,
+  "علوم سنيمائية": 55
+};
 
-  // Retrieve user's answers
-  const form = document.getElementById("quizForm");
-  for (let i = 1; i <= 10; i++) {
-    const questionName = "question" + i;
-    const selectedAnswer = form.elements[questionName].value;
-    // Increment the score for the chosen major
-    switch (selectedAnswer) {
-      case "a":
-        answers.majors.humanities++;
-        break;
-      case "b":
-        answers.majors.scienceHealth++;
-        break;
-      case "c":
-        answers.majors.stem++;
-        break;
-      case "d":
-        answers.majors.socialSciences++;
-        break;
-      case "e":
-        answers.majors.business++;
-        break;
-      default:
-        break;
+function findMatchingColleges() {
+  const percentage = parseFloat(document.getElementById("percentage").value);
+  const specialization = document.getElementById("specialization").value;
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+
+  const matchingColleges = [];
+  for (const [college, acceptancePercentage] of Object.entries(collegesData)) {
+    if (percentage >= acceptancePercentage) {
+      // Check if the college belongs to the selected specialization
+      if ((specialization === 'science' && isScienceCollege(college)) ||
+          (specialization === 'mathematics' && isMathematicsCollege(college)) ||
+          (specialization === 'literature' && isLiteratureCollege(college))) {
+        matchingColleges.push(college);
+      }
     }
   }
 
-  // Determine the major(s) with the highest score
-  let maxScore = Math.max(...Object.values(answers.majors));
-  let resultMajors = [];
-  for (const major in answers.majors) {
-    if (answers.majors[major] === maxScore) {
-      resultMajors.push(major);
-    }
+  if (matchingColleges.length > 0) {
+    const list = document.createElement("ul");
+    matchingColleges.forEach(college => {
+      const listItem = document.createElement("li");
+      listItem.textContent = college;
+      list.appendChild(listItem);
+    });
+    resultsDiv.appendChild(list);
+  } else {
+    resultsDiv.textContent = "No suitable colleges found for your percentage and specialization.";
   }
+}
 
-  // Get descriptions based on the chosen major(s)
-  let resultPersonalTraits = resultMajors.map(
-    (major) => answers.personalTraits[major]
-  );
-  let resultCareerAspirations = resultMajors.map(
-    (major) => answers.careerAspirations[major]
-  );
-  let resultLeisurePreferences = resultMajors.map(
-    (major) => answers.leisurePreferences[major]
-  );
-  let resultLearningStyles = resultMajors.map(
-    (major) => answers.learningStyles[major]
-  );
+function isScienceCollege(college) {
+  
+  const scienceColleges = ["تمريض","حقوق","زراعة","اللغات والترجمة","كلية العلوم الأساسية","فنون تطبيقية (الشعبة العلمية)","كلية تكنولوجيا العلوم الصحية وكليات التكنولوجيا الحيوية","طب بيطري","علاج طبيعي","صيدلة","طب بشري", "طب الأسنان", "علم الحاسب"];
+  return scienceColleges.includes(college);
+}
 
-  // Display the results
-  const resultDiv = document.getElementById("results");
-  resultDiv.innerHTML =
-    " Personal Traits: " +
-    resultPersonalTraits.join(", ") +
-    "<br>" +
-    " Career Aspirations: " +
-    resultCareerAspirations.join(", ") +
-    "<br>" +
-    " Leisure Preferences: " +
-    resultLeisurePreferences.join(", ") +
-    "<br>" +
-    " Learning Styles: " +
-    resultLearningStyles.join(", ") +
-    "<br>" +
-    " Majors of Interest: " +
-    resultMajors.join(", ");
+function isMathematicsCollege(college) {
+ 
+  const mathematicsColleges = ["آداب","حقوق","زراعة","اللغات والترجمة","كلية العلوم الأساسية","فنون تطبيقية (الشعبة العلمية)","هندسة", "كلية العلوم الأساسية"];
+  return mathematicsColleges.includes(college);
+}
 
-  // Check if "scientific mathematics" was selected
-  if (resultMajors.includes("stem")) {
-    // Display medicine and dentistry colleges
-    const medicineAndDentistryColleges = [
-      "Medicine College",
-      "Dentistry College",
-    ];
-    const collegesDiv = document.createElement("div");
-    collegesDiv.innerHTML =
-      "Colleges: " + medicineAndDentistryColleges.join(", ");
-    resultDiv.appendChild(collegesDiv);
-  }
+function isLiteratureCollege(college) {
+ 
+  const literatureColleges = ["حقوق","سياحة وفنادق","تربية","آثار","آداب","زراعة","كليات الاقتصاد والإدارة","اقتصاد وعلوم سياسية","اللغات والترجمة","آداب", "الإعلام وفنون الاتصال (الشعبة الأدبية)"];
+  return literatureColleges.includes(college);
 }
