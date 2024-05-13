@@ -1030,3 +1030,12 @@ select:-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
 }
+.colii {
+  display: flex;
+  flex-direction: column;
+}
+
+.courc-card img {
+  height: 200px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+}

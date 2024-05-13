@@ -13,7 +13,7 @@ def connect():
         import pyodbc
         # Database connection parameters
         DRIVER_NAME = 'SQL Server'
-        SERVER_NAME = 'Mohamed\\MSSQLSERVER01'
+        SERVER_NAME = 'DESKTOP-OCTN8CG\MSSQLSERVER02'
         DATABASE_NAME = 'project'
 
         # Establish a connection

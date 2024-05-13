@@ -37,9 +37,19 @@
             <div id="menu" class="col-md-9 d-none d-md-block nav-item">
               <ul>
                 <li><a href="/" data-translate="Home">Home</a></li>
-                <li><a href="/universities" data-translate="Universities">Universities</a></li>
-                <li><a href="/colleges" data-translate="Colleges">Colleges</a></li>
-                <li><a href="/choose_major" data-translate="Choose Major">Choose Major</a></li>
+                <li>
+                  <a href="/universities" data-translate="Universities"
+                    >Universities</a
+                  >
+                </li>
+                <li>
+                  <a href="/colleges" data-translate="Colleges">Colleges</a>
+                </li>
+                <li>
+                  <a href="/choose_major" data-translate="Choose Major"
+                    >Choose Major</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
@@ -82,46 +92,83 @@
     <!-- ################# popular Cources Starts Here#######################--->
     <div class="popular-cources">
       <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <label for="rankFilter" data-translate="Filter by Rank:">Filter by Rank:</label>
-              <select class="round" id="rankFilter" onchange="filterByRank(this.value)">
-                  <option value="all" data-translate="All Ranks">All Ranks</option>
-                  <option value="1-5" data-translate="Rank 1-5">Rank 1-5</option>
-                  <option value="5-10" data-translate="Rank 5-10">Rank 5-10</option>
-                  <option value="10-15" data-translate="Rank 10-15">Rank 10-15</option>
-                  <option value="15-20" data-translate="Rank 15-20">Rank 15-20</option>
-              </select>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="rankFilter" data-translate="Filter by Rank:"
+              >Filter by Rank:</label
+            >
+            <select
+              class="round"
+              id="rankFilter"
+              onchange="filterByRank(this.value)"
+            >
+              <option value="all" data-translate="All Ranks">All Ranks</option>
+              <option value="1-5" data-translate="Rank 1-5">Rank 1-5</option>
+              <option value="5-10" data-translate="Rank 5-10">Rank 5-10</option>
+              <option value="10-15" data-translate="Rank 10-15">
+                Rank 10-15
+              </option>
+              <option value="15-20" data-translate="Rank 15-20">
+                Rank 15-20
+              </option>
+            </select>
           </div>
-          
-          
-          </div>
-          <div class="row courc-ro" id="universitiesContainer">
-            <form action="/compare" method="post"> 
-              <a href="{{ ('/compare') }}"><button  class="button"  type = "submit" id = "compare">Compare</button></a>
-              {% for university in universities %}
-              <div class="col-md-4 university-item" data-rank="{{ university[2] }}">
+        </div>
+        <div class="row">
+          <div class="colii" id="universitiesContainer">
+            <form action="/compare" method="post">
+              <a href="{{ ('/compare') }}"
+                ><button class="button" type="submit" id="compare">
+                  Compare
+                </button></a
+              >
+              <div class="row">
+                {% for university in universities %}
+                <div
+                  class="col-md-4 university-item colii"
+                  data-rank="{{ university[2] }}"
+                >
                   <div class="courc-card">
-                      <!-- University image -->
-                      <img src="data:image/jpeg;base64,{{ images[loop.index0] }}" alt="University Image" />
-                      <!-- University details -->
-                      <div class="cource-det">
-                          <h6>{{ university[0] }}</h6>
-                          <ul id="descriptionList{{ loop.index }}">
-                              <li>{{ university[1] }}</li>
-                          </ul>
-                          <p>Rank: {{ university[2] }}</p>
-                          <p id="location{{ loop.index }}" style="display: none;">Location: {{ university[4] }}<br>University Website: <a href="{{ university[5] }}" target="_blank">{{ university[5] }}</a></p>
-                          <!-- Checkbox for university selection -->
-                          <input type="checkbox" id="checkbox{{ loop.index }}" name="selected_universities" value="{{ university[0] }}">
-                          <label for="checkbox{{ loop.index }}">Select</label>
-                          <button id="showMoreBtn{{ loop.index }}" data-translate="Show More">Show More</button>
-                      </div>
+                    <!-- University image -->
+                    <img
+                      src="data:image/jpeg;base64,{{ images[loop.index0] }}"
+                      alt="University Image"
+                    />
+                    <!-- University details -->
+                    <div class="cource-det">
+                      <h6>{{ university[0] }}</h6>
+                      <ul id="descriptionList{{ loop.index }}">
+                        <li>{{ university[1] }}</li>
+                      </ul>
+                      <p>Rank: {{ university[2] }}</p>
+                      <p id="location{{ loop.index }}" style="display: none">
+                        Location: {{ university[4] }}<br />University Website:
+                        <a href="{{ university[5] }}" target="_blank"
+                          >{{ university[5] }}</a
+                        >
+                      </p>
+                      <!-- Checkbox for university selection -->
+                      <input
+                        type="checkbox"
+                        id="checkbox{{ loop.index }}"
+                        name="selected_universities"
+                        value="{{ university[0] }}"
+                      />
+                      <label for="checkbox{{ loop.index }}">Select</label>
+                      <button
+                        id="showMoreBtn{{ loop.index }}"
+                        data-translate="Show More"
+                      >
+                        Show More
+                      </button>
+                    </div>
                   </div>
+                </div>
+                {% endfor %}
               </div>
-              {% endfor %}
-          
+            </form>
           </div>
+        </div>
       </div>
     </div>
 
@@ -144,20 +191,23 @@
   <script src="static/js/script.js"></script>
   <script>
     function filterByRank(rank) {
-        const items = document.querySelectorAll('.university-item');
-        items.forEach(item => {
-            const itemRank = parseInt(item.getAttribute('data-rank'));
-            if (rank === 'all' || (rank === '1-5' && itemRank >= 1 && itemRank <= 5) ||
-                (rank === '5-10' && itemRank >= 5 && itemRank <= 10) ||
-                (rank === '10-15' && itemRank >= 10 && itemRank <= 15) ||
-                (rank === '15-20' && itemRank >= 15 && itemRank <= 20)) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    };
-</script>
+      const items = document.querySelectorAll(".university-item");
+      items.forEach((item) => {
+        const itemRank = parseInt(item.getAttribute("data-rank"));
+        if (
+          rank === "all" ||
+          (rank === "1-5" && itemRank >= 1 && itemRank <= 5) ||
+          (rank === "5-10" && itemRank >= 5 && itemRank <= 10) ||
+          (rank === "10-15" && itemRank >= 10 && itemRank <= 15) ||
+          (rank === "15-20" && itemRank >= 15 && itemRank <= 20)
+        ) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
         function toggleDescriptionList(btnId, listId, locationId) {
@@ -189,5 +239,5 @@
         toggleDescriptionList("showMoreBtn{{ loop.index }}", "descriptionList{{ loop.index }}", "location{{ loop.index }}");
         {% endfor %}
     });
-</script>
+  </script>
 </html>
