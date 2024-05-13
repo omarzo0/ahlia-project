@@ -1,12 +1,12 @@
 import os
 import base64
-from flask import Flask, render_template, request, jsonify
-import pypyodbc as odbc
-
+from flask import Flask, redirect, render_template, request, jsonify, session
+import pyodbc
 app = Flask(__name__, static_url_path='/static')
 
 # Configure the template folder to be the current directory
 app.template_folder = os.path.abspath(os.path.dirname(__file__))
+app.secret_key = os.urandom(24)  # Set the secret key for session encryption
 
 def connect():
     try:
@@ -218,7 +218,48 @@ def choose_major():
 
 @app.route('/home')
 def home():
-    return render_template('./admin/adminpanel.html')
+    return render_template('./admin/login.html')
+
+@app.route('/admin', methods=['POST'])
+def login():
+    if 'username' in session:
+        # User is already logged in, redirect to admin panel
+        return render_template('./admin/adminpanel.html')
+
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        
+        try:
+            conn = connect()
+            if conn:
+                cursor = conn.cursor()
+                # Prepare to call the stored procedure with output parameter for login result
+                cursor.execute("EXECUTE LoginUser @Username=?, @Password=?", username, password)
+                
+                # Fetch the result set after executing the stored procedure
+                row = cursor.fetchone()
+                if row and row[0] == '1':
+                    # Create a session for the user
+                    session['username'] = username
+                    # Redirect to the admin panel or render the admin panel template
+                    return render_template('./admin/adminpanel.html')
+                else:
+                    return "Invalid credentials or user not found"
+
+        except pyodbc.Error as e:
+            return f"Database error: {e}"
+
+    # If no session and not a POST request, or login failed, render the login page
+    return redirect('/home')
+
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    # Clear the session data (assuming you are using sessions for user authentication)
+    session.pop('username', None)
+    # Redirect the user to the login page or any other appropriate page
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
