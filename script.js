@@ -101,6 +101,7 @@ function findMatchingColleges() {
   const specialization = document.getElementById("specialization").value;
   const resultsDiv = document.getElementById("results");
   resultsDiv.innerHTML = "";
+  resultsDiv.style.display = "block";
 
   const matchingColleges = [];
   for (const [college, acceptancePercentage] of Object.entries(collegesData)) {
@@ -253,6 +254,7 @@ function findNearestCollege() {
 
   // Display the result
   const resultElement = document.getElementById("result");
+  resultElement.style.display = "block";
   if (nearestCollege) {
     resultElement.textContent = `The nearest college to ${userGovernorate} is: ${nearestCollege}`;
   } else {
