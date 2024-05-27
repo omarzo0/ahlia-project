@@ -13,7 +13,7 @@ def connect():
         import pyodbc
         # Database connection parameters
         DRIVER_NAME = 'SQL Server'
-        SERVER_NAME = 'DESKTOP-OCTN8CG\MSSQLSERVER02'
+        SERVER_NAME = 'Mohamed\MSSQLSERVER01'
         DATABASE_NAME = 'project'
 
         # Establish a connection
@@ -150,35 +150,40 @@ def colleges():
   
 @app.route('/programs', methods=['POST'])
 def programs():
-    uni_name = request.form.get('uni_name')  # Use get instead of getlist for single value
+    uni_name = request.form.get('uni_name')
     try:
         conn = connect()
         if conn:
             cursor = conn.cursor()
             university_data_list = []
 
-            # Define the SQL query to fetch university ID based on name
+            # Fetch university ID based on name from universities table
             sql_query_uni_id = "SELECT university_id FROM universities WHERE name = ?"
             cursor.execute(sql_query_uni_id, (uni_name,))
             uni_row = cursor.fetchone()
 
             if uni_row:
                 uni_id = uni_row[0]
-                # Define the SQL query to fetch programs based on university ID
-                sql_query_programs = "SELECT name FROM programs WHERE university_id = ?"
+
+                # Fetch program names and IDs based on university ID from programs table
+                sql_query_programs = "SELECT name, program_id FROM programs WHERE university_id = ?"
                 cursor.execute(sql_query_programs, (uni_id,))
                 program_rows = cursor.fetchall()
 
                 for program_row in program_rows:
                     program_name = program_row[0]
+                    program_id = program_row[1]
+
+                    # Fetch program image from images table based on the first word of program name
                     first_word = program_name.split()[0]
-
-                    # Define the SQL query to fetch images based on the first word of the program name
                     sql_query_image = "SELECT img FROM images WHERE name LIKE ?"
-
-                    # Execute the query with the first word parameter
                     cursor.execute(sql_query_image, (f'{first_word}%',))
                     image_row = cursor.fetchone()
+
+                    # Fetch program fees from fees table based on program ID
+                    sql_query_fees = "SELECT amount FROM fees WHERE program_id = ?"
+                    cursor.execute(sql_query_fees, (program_id,))
+                    fees_row = cursor.fetchone()
 
                     if image_row and image_row[0]:  # Image found in the images table
                         encoded_image = base64.b64encode(image_row[0]).decode('utf-8')  # Encode image data
@@ -193,10 +198,11 @@ def programs():
                             image_data = f"data:image/jpeg;base64,{encoded_image}"
                         else:
                             image_data = None
+                            
+                    program_fees = fees_row[0] if fees_row else None
 
-                    university_data_list.append({'name': program_name, 'image_data': image_data})
+                    university_data_list.append({'name': program_name, 'fees': program_fees, 'image_data': image_data})
 
-            # Close the cursor and connection
             cursor.close()
             conn.close()
 
@@ -205,11 +211,10 @@ def programs():
             return render_template('error.html', message="Database connection error")
     except Exception as e:
         print(f"Error fetching programs: {e}")
-        # Close the cursor and connection in case of exception
         cursor.close()
         conn.close()
-        # Return an error response or redirect to an error page
         return render_template('error.html', message="Error fetching data")
+
 
 # Define route for the choose major page
 @app.route('/choose_major')
